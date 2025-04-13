@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Login and Register tabbed form</title>  
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .main-form-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .panel-heading {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .panel-heading a {
+            color: #333;
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin: 0 15px;
+        }
+
+        .panel-heading a.active {
+            color: #667eea;
+        }
+
+        .panel-heading a:hover {
+            color: #764ba2;
+        }
+
+        .or {
+            text-align: center;
+            margin: 20px 0;
+            color: #666;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 18px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 12px 12px 45px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #667eea;
+            outline: none;
+        }
+
+        .btn-login, .btn-register {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            background: #667eea;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-login:hover, .btn-register:hover {
+            background: #764ba2;
+        }
+
+        .w3ls_head {
+            font-size: 48px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 30px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .w3ls_head span {
+            color: #764ba2;
+        }
+    </style>
+</head>
+<body>
+<div class="main-form-box">
+    <div class="panel panel-login">
+        <h2 class="w3ls_head">识<span>痕</span></h2>
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-6">
+                    <a href="#" class="active" id="login-form-link">登录</a>
+                </div>
+                <div class="col-6">
+                    <a href="#" id="register-form-link">注册</a>
+                </div>
+                <div class="or">或</div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-12">
+                    <form id="login-form" style="display: block;">
+                        <div class="form-group">
+                            <label><i class="fas fa-user-tie"></i></label>
+                            <input type="text" name="username" placeholder="用户名" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-key"></i></label>
+                            <input type="password" name="password" placeholder="密码" required>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn-login">登录</button>
+                        </div>
+                    </form>
+                    <form id="register-form" style="display: none;">
+                        <div class="form-group">
+                            <label><i class="fas fa-user-tie"></i></label>
+                            <input type="text" name="username" placeholder="用户名" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-key"></i></label>
+                            <input type="password" name="password" placeholder="密码" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-key"></i></label>
+                            <input type="password" name="confirm-password" placeholder="确认密码" required>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn-register">注册用户</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // 更新登录状态
+        function updateLoginStatus() {
+            axios.get("http://localhost:5000/status")
+                .then(response => {
+                    document.getElementById("login-status").innerText = response.data.status;
+                })
+                .catch(() => {
+                    document.getElementById("login-status").innerText = "Not logged in";
+                });
+        }
+
+        // 登录表单提交
+        document.getElementById("login-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const username = this.username.value;
+            const password = this.password.value;
+            axios.post("http://localhost:5000/login", { username, password })
+                .then(response => {
+                    window.location.href = "http://127.0.0.1:5501/html/index.html";
+                    updateLoginStatus();
+                })
+                .catch(error => alert("Error: " + error.response.data.message));
+        });
+
+        // 注册表单提交
+        document.getElementById("register-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const username = this.username.value;
+            const password = this.password.value;
+            const confirmPassword = this["confirm-password"].value;
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+            axios.post("http://localhost:5000/register", { username, password })
+                .then(response => alert(response.data.message))
+                .catch(error => alert("Error: " + error.response.data.message));
+        });
+
+        // 切换登录和注册表单
+        document.getElementById("login-form-link").addEventListener("click", function (e) {
+            e.preventDefault();
+            document.getElementById("login-form").style.display = "block";
+            document.getElementById("register-form").style.display = "none";
+            this.classList.add("active");
+            document.getElementById("register-form-link").classList.remove("active");
+        });
+
+        document.getElementById("register-form-link").addEventListener("click", function (e) {
+            e.preventDefault();
+            document.getElementById("register-form").style.display = "block";
+            document.getElementById("login-form").style.display = "none";
+            this.classList.add("active");
+            document.getElementById("login-form-link").classList.remove("active");
+        });
+
+        // 初始化登录状态
+        updateLoginStatus();
+    });
+</script>
+</body>
+</html>

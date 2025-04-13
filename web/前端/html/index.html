@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>实行基于深度学习的锂电池表面缺陷检测系统 | Home</title>
+	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" /><!-- fontawesome -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" /><!-- Bootstrap stylesheet -->
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" /><!-- stylesheet -->
+	<!-- meta tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Solar Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //meta tags -->
+	<!--fonts-->
+	<link
+		href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<!--//fonts-->
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<!-- Required-js -->
+
+	<!-- main slider-banner -->
+	<script src="js/skdslider.min.js"></script>
+	<link href="css/skdslider.css" rel="stylesheet">
+	<style>
+		/* 改进的用户头像样式 */
+		.user-profile {
+            float: right;
+            margin-top: 0px;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .user-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            overflow: hidden;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .user-avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .user-name {
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            margin-right: 10px;
+        }
+        .login-btn {
+            color: #333;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .login-btn:hover {
+            background: #fff;
+            color: #333;
+            border-color: #fff;
+        }
+	</style>
+	<script type="text/javascript">
+		jQuery(document).ready(function () {
+			jQuery('#demo1').skdslider({ 'delay': 5000, 'animationSpeed': 2000, 'showNextPrev': true, 'showPlayButton': true, 'autoSlide': true, 'animationType': 'fading' });
+
+			jQuery('#responsive').change(function () {
+				$('#responsive_wrapper').width(jQuery(this).val());
+			});
+
+		});
+	</script>
+	<!-- //main slider-banner -->
+
+	<!-- scriptfor smooth drop down-nav -->
+	<script>
+		$(document).ready(function () {
+			$(".dropdown").hover(
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideDown("fast");
+					$(this).toggleClass('open');
+				},
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideUp("fast");
+					$(this).toggleClass('open');
+				}
+			);
+			
+			// 点击头像跳转到用户中心
+			$('.user-avatar, .user-name').click(function() {
+				window.location.href = 'user.html';
+			});
+		});
+	</script>
+	<!-- //script for smooth drop down-nav -->
+</head>
+
+<body>
+	<!-- header -->
+	<header>
+		<div class="w3layouts-top-strip">
+			<div class="container">
+				<div class="logo">
+					<h1><a href="index.html"><span>识 </span>痕</a></h1>
+				</div>
+				
+				<!-- 改进后的用户头像和登录状态部分 -->
+				<div class="user-profile">
+                    <div class="user-avatar" onclick="window.location.href='user.html'">
+                        <!-- 使用本地默认头像图片 -->
+                        <img src="images/user.png" alt="用户头像" id="userAvatar">
+                    </div>
+                    <span class="user-name" id="userName" onclick="window.location.href='user.html'">游客</span>
+                    <button class="login-btn" id="loginBtn">登录</button>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+		<!-- navigation -->
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a class="active" href="index.html">首页</a></li>
+						<li><a href="about.html">关于我们</a></li>
+						<li><a href="services.html">数据集介绍</a></li>
+						<li><a href="products.html">缺陷检测</a></li>
+						<li><a href="user.html">用户中心</a></li>
+						<li><a href="contact.html">联系我们</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		<!-- //navigation -->
+	</header>
+	<!-- //header -->
+	<!-- top-header and slider -->
+	<div class="w3-slider">
+		<!-- main-slider -->
+		<ul id="demo1">
+			<li>
+				<img src="images/8.png" alt="" />
+				<div class="slide-desc">
+					<h3>基于深度学习的锂电池表面缺陷检测</h3>
+					<p>本项目对锂电池表面缺陷检测中的标注标准难确立、迁移学习难适应及检测精度待提高问题提出创新解决方案。通过自编码器和软聚类算法辅助确立标注标准，构建FineDefect数据集并采用自监督预训练提升模型迁移学习性能。</p>
+				</div>
+			</li>
+			<li>
+				<img src="images/2.webp" alt="" />
+				<div class="slide-desc">
+					<h3>YOLOv8模型优化</h3>
+					<p>通过改进YOLOv8模型，解决锂电池表面缺陷检测中的小目标、极端长宽比和小样本问题，提升检测精度和鲁棒性，确保在复杂场景下的高效检测。项目将通过WEB平台实现锂电池缺陷的高效标注和智能检测。</p>
+				</div>
+			</li>
+			<li>
+				<img src="images/3.jpg" alt="" />
+				<div class="slide-desc">
+					<h3>缺陷检测数据集构建</h3>
+					<p>FineDefect数据集收集了多个工业领域的表面缺陷图像，包括金属、塑料、玻璃和电子元件等不同材料的表面缺陷样本。数据集涵盖了多种常见缺陷类型，如划痕、裂纹、凹陷、气泡、污点、腐蚀等。</p>
+				</div>
+			</li>
+		</ul>
+	<!-- //main-slider -->
+	<!-- //top-header and slider -->
+	<!-- Specialize-section -->
+	<section class="w3-about text-center">
+		<div class="container">
+			<h2 class="w3ls_head">识<span>痕</span></h2>
+			<p class="para">锂电池缺陷检测系统 <span> 上传或实时获取的图像将由深度学习模型处理</span>缺陷所在的位置通过清晰的标注框直观呈现</p>
+			<div class="col-md-4 w3l-abt-grid">
+				<div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
+					<a href="#" class="hi-icon icon1"><i class="fa fa-cog" aria-hidden="true"></i></a>
+				</div>
+				<h4>高效的数据标注与标准化</h4>
+				<p>通过基于全卷积自编码器和软聚类算法的自动标注方法，项目大幅提高了缺陷标注的效率和一致性，帮助专家快速制定标准化标注体系，从而为后续的模型训练提供高质量的数据支持。</p>
+			</div>
+			<div class="col-md-4 w3l-abt-grid">
+				<div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
+					<a href="#" class="hi-icon icon2"><i class="fa fa-sun-o" aria-hidden="true"></i></a>
+				</div>
+				<h4>自监督学习提升检测能力</h4>
+				<p>结合自监督学习方法（如CutPaste和SimCLR），项目通过定制预训练权重，优化了模型对微小缺陷和复杂背景的识别能力，尤其在小样本和小目标缺陷的检测场景下表现突出，提升了模型的泛化能力和鲁棒性。
+				</p>
+			</div>
+			<div class="col-md-4 w3l-abt-grid">
+				<div class="hi-icon-wrap hi-icon-effect-7 hi-icon-effect-7b">
+					<a href="#" class="hi-icon icon3"><i class="fa fa-gift" aria-hidden="true"></i></a>
+				</div>
+				<h4>多方面的模型优化与改进</h4>
+				<p>通过改进YOLOv8模型，项目解决了小目标、极端长宽比和小样本问题，增强了模型对锂电池表面缺陷的检测精度和鲁棒性。引入FPN注意模块、非对称卷积等创新技术，有效提升了在复杂工业场景中的检测性能。</p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</section>
+	<!-- //Specialize-section -->
+	<!--clients-->
+	<div class="w3layouts-clients">
+		<div class="container">
+			<h3>提高缺陷检测 <span>精确度</span></h3>
+			<p>尽管缺陷检测方法有多种变化，但大多数都面临着标注标准难以确立和迁移学习难以适应具体工业场景的挑战。我们提出的解决方案，结合了 FineDefect 数据集和自监督预训练，显著提升了缺陷检测的性能。</p>
+		</div>
+	</div>
+	<!--//clients-->
+	<!--advantage-->
+	<div class="what-w3ls">
+		<div class="container">
+			<h3 class="w3ls_head">我们做什么</h3>
+			<div class="what-grids">
+				<div class="col-md-6 what-grid">
+					<div class="list-img">
+						<img src="images/5.jpg" class="img-responsive" alt="" />
+						<div class="textbox"></div>
+					</div>
+				</div>
+				<div class="col-md-6 what-grid1">
+					<div class="what-top">
+						<div class="what-left">
+							<i class="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></i>
+						</div>
+						<div class="what-right">
+							<h4>表面缺陷检测</h4>
+							<p>通过使用 FineDefect 数据集，我们提供锂电池表面缺陷的自动检测，包括划痕、裂纹等异常。</p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="what-top1">
+						<div class="what-left">
+							<i class="glyphicon glyphicon-flash" aria-hidden="true"></i>
+						</div>
+						<div class="what-right">
+							<h4>数据标准化与聚类</h4>
+							<p>我们通过全卷积自编码器和软聚类算法，辅助建立标准化缺陷标注体系，提升检测效率和一致性。</p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="what-top1">
+						<div class="what-left">
+							<i class="glyphicon glyphicon-fire" aria-hidden="true"></i>
+						</div>
+						<div class="what-right">
+							<h4>模型性能改进</h4>
+							<p>我们对 YOLOv8 模型进行了改进，解决了小目标、小样本和极端长宽比缺陷检测中的问题，提升了检测精度和召回率。</p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+
+		</div>
+	</div>
+
+	<!--advantage-->
+	<!--stats-->
+
+	<!--//stats-->
+
+	<!-- footer -->
+	<div class="footer">
+		Copyright © 2025 识痕项目组 &nbsp;&nbsp;&nbsp;四川大学计算机学院 &nbsp;&nbsp;&nbsp;<a href="#">隐私政策</a>
+	</div>
+
+	<!-- //footer -->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/numscroller-1.0.js"></script>
+	<script>
+		// 模拟登录状态切换
+		$(document).ready(function() {
+        // 检查登录状态
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        const username = localStorage.getItem('username') || '游客';
+        
+        // 确保头像路径始终有效
+        let avatar = localStorage.getItem('avatar');
+        if(!avatar || avatar === 'null') {
+            avatar = 'images/user.png'; // 设置默认头像路径
+        }
+        
+        // 更新用户显示
+        $('#userName').text(username);
+        $('#userAvatar').attr('src', avatar).on('error', function() {
+            // 如果头像加载失败，使用备用头像
+            $(this).attr('src', 'images/default-avatar.png');
+        });
+        $('#loginBtn').text(isLoggedIn ? '退出' : '登录');
+        
+        // 登录/退出按钮事件
+        $('#loginBtn').click(function() {
+            if (isLoggedIn) {
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('username');
+                localStorage.removeItem('avatar');
+                window.location.reload();
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
+    });
+	</script>
+</body>
+
+</html>

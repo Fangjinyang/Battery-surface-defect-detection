@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <title>用户中心 | 识痕</title>
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        /* 用户中心专用样式 */
+        .user-profile-container {
+            padding: 40px 0;
+            background: #f9f9f9;
+            min-height: calc(100vh - 200px);
+        }
+
+        .profile-header {
+            background: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 30px;
+            border: 3px solid #eee;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info h2 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+
+        .profile-info p {
+            margin: 0;
+            color: #777;
+        }
+
+        .history-section {
+            background: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .history-section h3 {
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+
+        .history-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .history-item {
+            border: 1px solid #eee;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .history-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .history-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .history-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .history-item:hover .history-img img {
+            transform: scale(1.05);
+        }
+
+        .history-details {
+            padding: 15px;
+        }
+
+        .history-details h4 {
+            margin: 0 0 10px;
+            font-size: 16px;
+        }
+
+        .history-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #777;
+            font-size: 13px;
+        }
+
+        .defect-tag {
+            display: inline-block;
+            padding: 3px 8px;
+            background: #f44336;
+            color: white;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+
+        .no-history {
+            text-align: center;
+            padding: 50px;
+            color: #999;
+        }
+
+        /* 访客模式样式 */
+        .guest-notice {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .guest-notice h3 {
+            margin-top: 0;
+            color: #ff6f00;
+        }
+
+        .guest-actions {
+            margin-top: 15px;
+        }
+
+        .guest-profile {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .guest-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #ccc;
+        }
+
+        .w3layouts-top-strip .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user-profile {
+            margin-left: auto;
+            /* 确保靠右 */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* 调整间距 */
+        }
+
+        .login-btn {
+            padding: 5px 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <div class="w3layouts-top-strip">
+            <div class="container">
+                <div class="logo">
+                    <h1><a href="index.html"><span>识 </span>痕</a></h1>
+                </div>
+                
+                <div class="user-profile">
+                    <span class="user-name" id="userName">游客</span>
+                    <button class="login-btn" id="loginBtn">登录</button>
+                </div>
+    
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- navigation -->
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="services.html">数据集介绍</a></li>
+                        <li><a href="products.html">缺陷检测</a></li>
+                        <li class="active"><a href="user.html">用户中心</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 用户中心内容 -->
+    <div class="user-profile-container">
+        <div class="container">
+            <!-- 访客提示 -->
+            <div class="guest-notice" id="guestNotice" style="display:none;">
+                <h3><i class="fa fa-exclamation-circle"></i> 您尚未登录</h3>
+                <p>登录后可以查看个人检测历史记录，保存您的检测结果，并获得更个性化的服务。</p>
+                <div class="guest-actions">
+                    <a href="login.html" class="btn btn-warning">立即登录</a>
+                    <a href="register.html" class="btn btn-default">注册账号</a>
+                </div>
+            </div>
+
+            <!-- 用户信息区域 -->
+            <div id="userProfileArea" style="display:none;">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="images/default-avatar.png" alt="用户头像" id="profileAvatar">
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="profileUsername">用户名</h2>
+                        <p>注册时间: <span id="registerDate">2023-10-15</span></p>
+                        <p>累计检测: <span id="totalDetections">0</span> 张图片</p>
+                    </div>
+                </div>
+
+                <div class="history-section">
+                    <h3>我的检测历史</h3>
+                    <div class="history-grid" id="detectionHistory">
+                        <!-- 这里会通过JS动态加载检测历史 -->
+                        <div class="no-history">
+                            <i class="fa fa-image fa-3x" style="color:#ddd; margin-bottom:15px;"></i>
+                            <p>您还没有检测记录</p>
+                            <a href="products.html" class="btn btn-primary">立即检测</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 访客默认展示 -->
+            <div id="guestProfileArea">
+                <div class="guest-profile">
+                    <div class="guest-avatar">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <h3>游客</h3>
+                    <p>您当前以游客身份浏览</p>
+                    <div class="guest-actions" style="margin-top:20px;">
+                        <a href="login.html" class="btn btn-primary">登录</a>
+                        <a href="register.html" class="btn btn-default">注册</a>
+                    </div>
+                </div>
+
+                <div class="history-section" style="margin-top:30px;">
+                    <h3>示例检测记录</h3>
+                    <div class="history-grid">
+                        <div class="history-item">
+                            <div class="history-img">
+                                <img src="images/demo-sample1.jpg" alt="示例图片1">
+                            </div>
+                            <div class="history-details">
+                                <h4>检测结果: <span style="color:red">不合格</span></h4>
+                                <div>
+                                    <span class="defect-tag">划痕</span>
+                                    <span class="defect-tag">凹陷</span>
+                                </div>
+                                <div class="history-meta">
+                                    <span>2023-10-10</span>
+                                    <a href="javascript:showLoginPrompt()">查看详情</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-item">
+                            <div class="history-img">
+                                <img src="images/demo-sample2.jpg" alt="示例图片2">
+                            </div>
+                            <div class="history-details">
+                                <h4>检测结果: <span style="color:green">合格</span></h4>
+                                <div>
+                                    <span style="color:green">无缺陷</span>
+                                </div>
+                                <div class="history-meta">
+                                    <span>2023-10-12</span>
+                                    <a href="javascript:showLoginPrompt()">查看详情</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align:center; margin-top:20px;">
+                        <a href="login.html" class="btn btn-warning">登录查看您的检测历史</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+        Copyright © 2025 识痕项目组 &nbsp;&nbsp;&nbsp;四川大学计算机学院 &nbsp;&nbsp;&nbsp;<a href="#">隐私政策</a>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 从本地存储加载用户数据
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const username = localStorage.getItem('username') || '游客';
+            const avatar = localStorage.getItem('avatar') || 'images/default-avatar.png';
+
+            // 更新页面顶部用户信息
+            updateUserDisplay(isLoggedIn, username, avatar);
+
+            if (isLoggedIn) {
+                // 显示用户信息区域，隐藏访客区域
+                $('#userProfileArea').show();
+                $('#guestProfileArea').hide();
+                $('#guestNotice').hide();
+
+                // 加载用户数据
+                loadUserProfile(username, avatar);
+                loadDetectionHistory();
+            } else {
+                // 显示访客区域，隐藏用户信息区域
+                $('#userProfileArea').hide();
+                $('#guestProfileArea').show();
+                $('#guestNotice').show();
+            }
+
+            // 登录/登出按钮事件
+            $('#loginBtn').click(function () {
+                if (isLoggedIn) {
+                    // 执行登出
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('avatar');
+                    window.location.reload();
+                } else {
+                    // 跳转到登录页面
+                    window.location.href = 'login.html';
+                }
+            });
+        });
+
+        function updateUserDisplay(isLoggedIn, username, avatar) {
+            $('#userName').text(username);
+            $('#userAvatar').attr('src', avatar);
+            $('#loginBtn').text(isLoggedIn ? '退出' : '登录');
+        }
+
+        function loadUserProfile(username, avatar) {
+            $('#profileUsername').text(username);
+            $('#profileAvatar').attr('src', avatar);
+
+            // 模拟注册时间 (实际项目中应从后端获取)
+            const registerDate = localStorage.getItem('registerDate') ||
+                new Date().toISOString().split('T')[0];
+            $('#registerDate').text(registerDate);
+        }
+
+        function loadDetectionHistory() {
+            // 这里应该是从后端API获取数据
+            // 以下是模拟数据
+            const mockData = [
+                {
+                    id: 1,
+                    imageUrl: 'images/defect-sample1.jpg',
+                    date: '2023-10-10',
+                    defects: ['划痕', '凹陷'],
+                    result: '不合格'
+                },
+                {
+                    id: 2,
+                    imageUrl: 'images/defect-sample2.jpg',
+                    date: '2023-10-12',
+                    defects: ['气泡'],
+                    result: '不合格'
+                },
+                {
+                    id: 3,
+                    imageUrl: 'images/defect-sample3.jpg',
+                    date: '2023-10-15',
+                    defects: [],
+                    result: '合格'
+                }
+            ];
+
+            if (mockData.length > 0) {
+                $('#totalDetections').text(mockData.length);
+
+                let historyHtml = '';
+                mockData.forEach(item => {
+                    historyHtml += `
+                        <div class="history-item">
+                            <div class="history-img">
+                                <img src="${item.imageUrl}" alt="检测图片 ${item.id}">
+                            </div>
+                            <div class="history-details">
+                                <h4>检测结果: <span style="color:${item.result === '合格' ? 'green' : 'red'}">${item.result}</span></h4>
+                                <div>
+                                    ${item.defects.map(defect => `<span class="defect-tag">${defect}</span>`).join('')}
+                                    ${item.defects.length === 0 ? '<span style="color:green">无缺陷</span>' : ''}
+                                </div>
+                                <div class="history-meta">
+                                    <span>${item.date}</span>
+                                    <a href="detection-detail.html?id=${item.id}">查看详情</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                $('#detectionHistory').html(historyHtml);
+            }
+        }
+
+        function showLoginPrompt() {
+            if (confirm('请登录后查看详情，是否立即登录？')) {
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+</body>
+
+</html>

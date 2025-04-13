@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<title>实行基于深度学习的锂电池表面缺陷检测系统| About us</title>
+	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords"
+		content="Solar Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<style>
+		body {
+			background-image: url('./images/4.jpg');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			font-family: 'Open Sans', sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		.footer {
+			background-color: black;
+			color: white;
+			text-align: center;
+			padding: 20px 0;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+		}
+
+		/* 全新简约表单样式 */
+		.minimal-form {
+			max-width: 500px;
+			margin: 60px auto;
+			padding: 30px;
+			background-color: rgba(0, 0, 0, 0); /* 更透明的黑色背景 */
+			border: 1px solid rgba(255, 255, 255, 0.15); /* 更透明的边框 */
+			border-radius: 8px;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 更柔和的阴影 */
+		}
+
+		.form-title {
+			color: white;
+			text-align: center;
+			font-size: 28px;
+			margin-bottom: 40px;
+			text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+		}
+
+		.minimal-input {
+			background: transparent;
+			border: none;
+			border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* 半透明下划线 */
+			color: white;
+			width: 100%;
+			padding: 12px 0;
+			margin: 20px 0;
+			font-size: 20px;
+			font-weight: bold;
+			outline: none;
+			transition: border-color 0.3s;
+		}
+
+		.minimal-textarea {
+			background: transparent;
+			border: none;
+			border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* 半透明下划线 */
+			color: white;
+			width: 100%;
+			padding: 12px 0;
+			margin: 20px 0;
+			font-size: 20px;
+			font-weight: bold;
+			outline: none;
+			resize: none;
+			height: 100px;
+			transition: border-color 0.3s;
+		}
+
+		/* 统一placeholder样式 */
+		.minimal-input::placeholder,
+		.minimal-textarea::placeholder {
+			color: rgba(255, 255, 255, 0.7);
+		}
+
+		.minimal-input:focus,
+		.minimal-textarea:focus {
+			border-bottom-color: #86c724; /* 使用主题绿色 */
+		}
+
+		.minimal-submit {
+			background-color:#86c724;
+			color: white;
+			border: none;
+			padding: 12px 30px;
+			font-size: 16px;
+			margin-top: 30px;
+			cursor: pointer;
+			width: 100%;
+			transition: background-color 0.3s ease;
+			border-radius: 4px;
+		}
+
+		.minimal-submit:hover {
+			background-color: #75b120;
+		}
+	</style>
+	<script>
+		function handleSubmit(event) {
+			event.preventDefault();
+			const formData = {
+				name: document.getElementById('name').value,
+				email: document.getElementById('email').value,
+				subject: document.getElementById('subject').value,
+				message: document.getElementById('message').value
+			};
+
+			axios.post('http://127.0.0.1:5000/send-email', formData, {
+				headers: { 'Content-Type': 'application/json' }
+			})
+				.then(response => {
+					alert('邮件发送成功！');
+					document.getElementById('emailForm').reset();
+				})
+				.catch(error => {
+					alert('邮件发送失败，请重试。');
+				});
+		}
+
+		document.addEventListener('DOMContentLoaded', function () {
+			document.getElementById('emailForm').addEventListener('submit', handleSubmit);
+		});
+	</script>
+</head>
+
+<body>
+	<!-- 页头 -->
+	<header>
+		<div class="w3layouts-top-strip">
+			<div class="container">
+				<div class="logo">
+					<h1><a href="index.html"><span>识</span>痕</a></h1>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">切换导航</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="index.html">首页</a></li>
+						<li><a href="about.html">关于我们</a></li>
+						<li><a href="services.html">数据集介绍</a></li>
+						<li><a href="products.html">缺陷检测</a></li>
+						<li><a href="user.html">用户中心</a></li>
+						<li><a class="active" href="contact.html">联系我们</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- 联系我们 -->
+	<div class="minimal-form">
+		<h2 class="w3ls_head"
+			style="font-size: 40px; color: #86c724; font-weight: 600; margin-bottom: 20px; letter-spacing: 4px; text-transform: uppercase; text-align: center;">
+			联系</span>
+			<span>我们</span>
+		</h2>
+		<form id="emailForm">
+			<input type="text" id="name" name="name" class="minimal-input" placeholder="姓名" required>
+			<input type="email" id="email" name="email" class="minimal-input" placeholder="邮箱" required>
+			<input type="text" id="subject" name="subject" class="minimal-input" placeholder="主题" required>
+			<textarea id="message" name="message" class="minimal-textarea" placeholder="留言" required></textarea>
+			<input type="submit" value="发送" class="minimal-submit">
+		</form>
+	</div>
+
+	<!-- 页脚 -->
+	<div class="footer">
+		Copyright © 2025 识痕项目组 &nbsp;&nbsp;&nbsp;四川大学计算机学院 &nbsp;&nbsp;&nbsp;<a href="#" style="color:white;">隐私政策</a>
+	</div>
+</body>
+
+</html>
