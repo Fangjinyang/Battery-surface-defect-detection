@@ -15,11 +15,16 @@
 
 #### 网站向导
 
-<div style="display: flex; flex-wrap: wrap; justify-content: center;">
-  <img src="image/1.png" style="width: 30%; margin: 5px;" />
-  <img src="image/2.png" style="width: 30%; margin: 5px;" />
-  <img src="image/3.png" style="width: 30%; margin: 5px;" />
-  <img src="image/4.png" style="width: 30%; margin: 5px;" />
-  <img src="image/6.png" style="width: 30%; margin: 5px;" />
-  <img src="image/7.png" style="width: 30%; margin: 5px;" />
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+  <img src="image/2.png" style="width: 23%;" />
+  <img src="image/3.png" style="width: 23%;" />
+  <img src="image/4.png" style="width: 23%;" />
+  <img src="image/5.png" style="width: 23%;" />
+  <img src="image/6.png" style="width: 23%;" />
+  <img src="image/7.png" style="width: 23%;" />
+  <img src="image/8.png" style="width: 23%;" />
+  <img src="image/9.png" style="width: 23%;" />
 </div>
+#### 参考文献
+
