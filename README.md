@@ -17,14 +17,22 @@
 
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+  <img src="image/1.png" style="width: 23%;" />
   <img src="image/2.png" style="width: 23%;" />
   <img src="image/3.png" style="width: 23%;" />
   <img src="image/4.png" style="width: 23%;" />
-  <img src="image/5.png" style="width: 23%;" />
   <img src="image/6.png" style="width: 23%;" />
   <img src="image/7.png" style="width: 23%;" />
   <img src="image/8.png" style="width: 23%;" />
   <img src="image/9.png" style="width: 23%;" />
 </div>
+#### 技术细节
+
+- 通过基于全卷积自编码器和软聚类算法的自动标注方法，项目大幅提高了缺陷标注的效率和一致性，帮助专家快速制定标准化标注体系，从而为后续的模型训练损供高质量的数据支持。
+- 结合自监督学习方法 (SimCLR)，项目通过定制预训练权重，优化了模型对微小缺陷和复杂背景的识别能力，尤其在小样本和小目标缺陷的检测场景下表理突出，提升了模型的泛化能力和鲁棒性。
+- 通过改进YOLOV8模型，项目解决了小目标、极端长宽比和小样本问题，增强了模型对锂电池表面缺陷的检測持度和鲁棒性。引入FPN注意模块、非对称卷积等创新技术，有效提升了在复杂工业场景中的检测性能。
+
 #### 参考文献
+
+
 
