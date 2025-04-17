@@ -26,6 +26,8 @@
   <img src="image/8.png" style="width: 23%;" />
   <img src="image/9.png" style="width: 23%;" />
 </div>
+
+
 #### 技术细节
 
 - 通过基于全卷积自编码器和软聚类算法的自动标注方法，项目大幅提高了缺陷标注的效率和一致性，帮助专家快速制定标准化标注体系，从而为后续的模型训练损供高质量的数据支持。
@@ -34,5 +36,15 @@
 
 #### 参考文献
 
+[1]Xue Y, Zhang G, Li W, Wang X, Zhou Y, Yan J. "H2RBOX: Horizontal BoxAnnotation is All You Need for Oriented Object Detection." In Proceedings ofthe International Conference on Learning Representations (ICLR), 2023. 
 
+[2] YOLOv8: A Novel Object Detection Algorithm with Enhanced Performanceand Robustness. In Proceedings of the IEEE Conference, Chennai, India, 2024, pp. 1-6. doi: 10.1109/ACCESS.2024.DOI.10533619. 
+
+[3] Cong W, Cong Y, Liu Y, Sun G. "Cs 2K: Class-specific and Class-sharedKnowledge Guidance for Incremental Semantic Segmentation." arXivpreprint arXiv:2407.09047, 2024.Bochkovskiy, A., Wang, C.-Y., & Liao, H.-Y. M. (2020). YOLOv4: Optimalspeed and accuracy of object detection. arXiv preprint arXiv:2004.10934. 
+
+[4] Wang, C.-Y., et al. (2023). YOLOv8 multi-task version A-YOLOM. https://github.com/JiayuanWang-JW/YOLOv8-multi-task. 
+
+[5] Li, C., Li, L., Jiang, H., Weng, K., Geng, Y., Li, L., Ke, Z., Li, Q., et al.  (2022). YOLOv6: A Single-Stage Object Detection Framework for Industrial Applications. arXiv preprint arXiv:2209.02976. 
+
+[6]Wang, C.-Y., & Liao, H.-Y. M. (2024). YOLOv1 to YOLOv10: The fastest and most accurate real-time object detection systems. IEEE/CVF Conferenceon Computer Vision and Pattern Recognition (CVPR)
 
