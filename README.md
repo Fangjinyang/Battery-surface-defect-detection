@@ -13,7 +13,7 @@
 <img src="image/0.png" alt="0.png" style="zoom:80%;" />
 
 #### 网站向导
-
+我们采用 **Vue.js** 构建响应式前端界面，通过 **Axios** 与后端 **Flask RESTful API** 进行数据交互，实现高效的异步通信；后端使用 **Flask** 框架搭建轻量级服务，结合 **MongoDB** 非关系型数据库存储和管理数据，最终构建了一个高性能、易扩展的全栈 Web 应用。
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
   <img src="image/1.png" style="width: 23%;" />
