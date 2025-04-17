@@ -10,8 +10,7 @@
 
 
 
-
-![0.png](image/0.png)
+<img src="image/0.png" alt="0.png" style="zoom:80%;" />
 
 #### 网站向导
 
